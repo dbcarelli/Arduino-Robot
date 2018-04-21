@@ -1,7 +1,7 @@
 from xbee import XBee
 
 class Controller(object):
-    def __init__(self, dt, forward_speed, pivot_threshold):
+    def __init__(self, dt, forward_speed, pivot_threshold, port):
         self.current_heading = None
         self.target_heading = None
         self.error = None
@@ -11,7 +11,7 @@ class Controller(object):
         self.kp = (253.0/360.0)*5
         self.ki = 0
         self.dt = dt
-        self.xBee = XBee()
+        self.xBee = XBee(port)
         self.motor_input_pivot = 0
         self.motor_input_right = 0
         self.motor_input_left  = 0
